@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react";
+import { Menu, PlusCircle } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -11,9 +11,10 @@ import {
 } from "@/components/ui/sidebar";
 
 const menuItems = [
-  { title: "Gallery", url: "#gallery" },
-  { title: "About", url: "#about" },
-  { title: "Contact", url: "#contact" },
+  { title: "Gallery", url: "#gallery", icon: <Menu className="h-4 w-4" /> },
+  { title: "Create", url: "/create", icon: <PlusCircle className="h-4 w-4" /> },
+  { title: "About", url: "#about", icon: <Menu className="h-4 w-4" /> },
+  { title: "Contact", url: "#contact", icon: <Menu className="h-4 w-4" /> },
 ];
 
 export function AppSidebar() {
@@ -28,7 +29,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url} className="font-sans">
-                      <Menu className="h-4 w-4" />
+                      {item.icon}
                       <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
