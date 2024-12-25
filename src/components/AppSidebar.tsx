@@ -1,4 +1,4 @@
-import { Menu, PlusCircle } from "lucide-react";
+import { Menu } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -12,7 +12,6 @@ import {
 
 const menuItems = [
   { title: "Gallery", url: "#gallery", icon: <Menu className="h-4 w-4" /> },
-  { title: "Create", url: "/create", icon: <PlusCircle className="h-4 w-4" /> },
   { title: "About", url: "#about", icon: <Menu className="h-4 w-4" /> },
   { title: "Contact", url: "#contact", icon: <Menu className="h-4 w-4" /> },
 ];
