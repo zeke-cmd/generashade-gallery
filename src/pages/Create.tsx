@@ -39,26 +39,50 @@ function draw() {
   useEffect(() => {
     // Define the sketch
     const sketch = (p: p5) => {
-      // Create a function in global scope that p5.js can access
-      (window as any).setup = new Function(
-        code.match(/function setup\(\) {([\s\S]*?)}/)?.[1] || ""
-      );
-      (window as any).draw = new Function(
-        code.match(/function draw\(\) {([\s\S]*?)}/)?.[1] || ""
-      );
+      // Extract setup and draw functions using regex
+      const setupMatch = code.match(/function setup\(\) {([\s\S]*?)}/);
+      const drawMatch = code.match(/function draw\(\) {([\s\S]*?)}/);
+      
+      // Create setup function
+      const setupBody = setupMatch ? setupMatch[1] : '';
+      (window as any).setup = new Function(`
+        try {
+          ${setupBody}
+        } catch (error) {
+          console.error('Error in setup:', error);
+        }
+      `);
+
+      // Create draw function
+      const drawBody = drawMatch ? drawMatch[1] : '';
+      (window as any).draw = new Function(`
+        try {
+          ${drawBody}
+        } catch (error) {
+          console.error('Error in draw:', error);
+        }
+      `);
 
       p.setup = () => {
-        const canvas = p.createCanvas(800, 800);
-        canvas.parent(sketchRef.current!);
-        p.background(0);
-        if ((window as any).setup) {
-          (window as any).setup();
+        try {
+          const canvas = p.createCanvas(800, 800);
+          canvas.parent(sketchRef.current!);
+          p.background(0);
+          if ((window as any).setup) {
+            (window as any).setup();
+          }
+        } catch (error) {
+          console.error('Error in p5 setup:', error);
         }
       };
 
       p.draw = () => {
-        if ((window as any).draw) {
-          (window as any).draw();
+        try {
+          if ((window as any).draw) {
+            (window as any).draw();
+          }
+        } catch (error) {
+          console.error('Error in p5 draw:', error);
         }
       };
 
@@ -72,7 +96,11 @@ function draw() {
 
     // Create new p5 instance
     if (sketchRef.current && !p5Instance.current) {
-      p5Instance.current = new p5(sketch);
+      try {
+        p5Instance.current = new p5(sketch);
+      } catch (error) {
+        console.error('Error creating p5 instance:', error);
+      }
     }
 
     // Cleanup

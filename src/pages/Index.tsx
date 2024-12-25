@@ -2,6 +2,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { ArtCard } from "@/components/ArtCard";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const artworks = [
   {
