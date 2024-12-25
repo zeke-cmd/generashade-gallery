@@ -19,13 +19,13 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Josefin Sans", "sans-serif"],
-        serif: ["Cardo", "serif"],
+        mono: ["JetBrains Mono", "monospace"],
+        sans: ["Inter", "sans-serif"],
       },
       colors: {
-        primary: "#D9DFC6",
-        secondary: "#EFF3EA",
-        tertiary: "#FFFDF0",
+        primary: "#FFFFFF",
+        secondary: "#f3f3f3",
+        tertiary: "#aaadb0",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
