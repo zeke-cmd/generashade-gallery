@@ -28,8 +28,8 @@ const Index = () => {
         <main className="flex-1">
           {/* Hero Section */}
           <section className="min-h-screen w-full flex flex-col justify-between p-8 relative">
-            {/* Header Info */}
-            <div className="flex justify-between items-start w-full text-sm text-gray-600 dark:text-gray-400">
+            {/* Header Info with added bottom margin */}
+            <div className="flex justify-between items-start w-full text-sm text-gray-600 dark:text-gray-400 mb-12">
               <span>Currently exploring generative art</span>
               <span>Based in Digital Space</span>
               <span>Work, About, Contact</span>
@@ -55,9 +55,9 @@ const Index = () => {
                 ARTIST
               </motion.h1>
               
-              {/* Random Image */}
+              {/* Random Image with reduced size */}
               <motion.div
-                className="w-full max-w-xl mt-8"
+                className="w-full max-w-md mt-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
@@ -65,7 +65,7 @@ const Index = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3"
                   alt="Abstract Art"
-                  className="w-full h-64 object-cover"
+                  className="w-full h-48 object-cover"
                 />
               </motion.div>
             </motion.div>
@@ -94,7 +94,6 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Theme Toggle Button */}
           <motion.div 
             className="fixed bottom-8 right-8"
             initial={{ opacity: 0 }}
