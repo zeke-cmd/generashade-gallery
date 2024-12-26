@@ -2,9 +2,8 @@ import { motion } from "framer-motion";
 
 export function About() {
   return (
-    <>
+    <div id="about" className="min-h-screen">
       <motion.section 
-        id="about" 
         className="max-w-4xl mb-20 mx-6 md:mx-auto"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -45,6 +44,6 @@ export function About() {
           zeke@example.com
         </motion.a>
       </motion.section>
-    </>
+    </div>
   );
 }
