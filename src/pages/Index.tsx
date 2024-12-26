@@ -27,9 +27,9 @@ const Index = () => {
       <div className="min-h-screen flex w-full bg-white dark:bg-black">
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="min-h-screen w-full flex flex-col justify-between p-8 relative">
-            {/* Header Info with added bottom margin */}
-            <div className="flex justify-between items-start w-full text-sm text-gray-600 dark:text-gray-400 mb-12">
+          <section className="min-h-screen w-full flex flex-col justify-between p-6 relative">
+            {/* Header Info with reduced margin */}
+            <div className="flex justify-between items-start w-full text-sm text-gray-600 dark:text-gray-400 mb-8">
               <span>Currently exploring generative art</span>
               <span>Based in Digital Space</span>
               <span>Work, About, Contact</span>
@@ -37,13 +37,13 @@ const Index = () => {
 
             {/* Main Title */}
             <motion.div 
-              className="flex flex-col space-y-4 my-auto"
+              className="flex flex-col space-y-2 my-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
               <motion.h1 
-                className="text-[6vw] md:text-[5vw] lg:text-[4vw] leading-tight tracking-tighter font-bold"
+                className="text-[7vw] md:text-[6vw] lg:text-[5vw] leading-tight tracking-tighter font-bold"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -55,9 +55,9 @@ const Index = () => {
                 ARTIST
               </motion.h1>
               
-              {/* Random Image with reduced size */}
+              {/* Random Image with adjusted size */}
               <motion.div
-                className="w-full max-w-sm mt-8"
+                className="w-full max-w-sm mt-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
@@ -65,13 +65,13 @@ const Index = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3"
                   alt="Abstract Art"
-                  className="w-full h-40 object-cover"
+                  className="w-full h-32 object-cover"
                 />
               </motion.div>
             </motion.div>
 
             {/* Bottom Section */}
-            <div className="flex justify-between items-end w-full">
+            <div className="flex justify-between items-end w-full mt-4">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ const Index = () => {
                 </span>
               </motion.div>
               <motion.h2 
-                className="text-[14vw] leading-none tracking-tighter font-bold"
+                className="text-[16vw] leading-none tracking-tighter font-bold"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
