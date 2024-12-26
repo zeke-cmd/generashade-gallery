@@ -43,7 +43,7 @@ const Index = () => {
               transition={{ duration: 0.8 }}
             >
               <motion.h1 
-                className="text-[8vw] leading-none tracking-tighter font-bold"
+                className="text-[5vw] md:text-[4vw] lg:text-[3vw] leading-tight tracking-tighter font-bold"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -57,7 +57,7 @@ const Index = () => {
               
               {/* Random Image with reduced size */}
               <motion.div
-                className="w-full max-w-md mt-8"
+                className="w-full max-w-sm mt-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
@@ -65,7 +65,7 @@ const Index = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3"
                   alt="Abstract Art"
-                  className="w-full h-48 object-cover"
+                  className="w-full h-40 object-cover"
                 />
               </motion.div>
             </motion.div>
@@ -84,7 +84,7 @@ const Index = () => {
                 </span>
               </motion.div>
               <motion.h2 
-                className="text-[15vw] leading-none tracking-tighter font-bold"
+                className="text-[12vw] leading-none tracking-tighter font-bold"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
@@ -187,6 +187,7 @@ const Index = () => {
               zeke@example.com
             </motion.a>
           </motion.section>
+
         </main>
       </div>
     </SidebarProvider>
