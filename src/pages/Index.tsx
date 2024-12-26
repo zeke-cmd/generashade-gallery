@@ -43,7 +43,7 @@ const Index = () => {
               transition={{ duration: 0.8 }}
             >
               <motion.h1 
-                className="text-[5vw] md:text-[4vw] lg:text-[3vw] leading-tight tracking-tighter font-bold"
+                className="text-[6vw] md:text-[5vw] lg:text-[4vw] leading-tight tracking-tighter font-bold"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -84,7 +84,7 @@ const Index = () => {
                 </span>
               </motion.div>
               <motion.h2 
-                className="text-[12vw] leading-none tracking-tighter font-bold"
+                className="text-[14vw] leading-none tracking-tighter font-bold"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
