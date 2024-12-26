@@ -11,11 +11,11 @@ export function ArtCard({ title, image, description }: ArtCardProps) {
 
   return (
     <div
-      className="art-card group"
+      className="relative overflow-hidden bg-black border border-white/20 aspect-square"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img src={image} alt={title} className="transition-all duration-500" />
+      <img src={image} alt={title} className="w-full h-full object-cover transition-all duration-500" />
       <div
         className={`absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-6 transition-opacity duration-300 ${
           isHovered ? "opacity-100" : "opacity-0"
