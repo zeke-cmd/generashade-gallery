@@ -42,34 +42,38 @@ export const HeroSection = () => {
           <br />
           ARTIST
         </motion.h1>
+      </motion.div>
+
+      {/* Bottom Section with Image and Text */}
+      <div className="flex flex-col items-end space-y-8 mt-auto">
+        <motion.div
+          className="w-full max-w-md"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3"
+            alt="Abstract Art"
+            className="w-full h-48 object-cover"
+          />
+        </motion.div>
         
-        {/* Image and Description Section */}
-        <div className="flex flex-col items-center relative mt-8">
-          <motion.div
-            className="w-full max-w-md"
+        <div className="flex justify-between items-end w-full">
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-left"
           >
-            <img 
-              src="/lovable-uploads/000a987e-caed-41d1-83d6-a88d612e3499.png"
-              alt="Abstract Art"
-              className="w-full h-48 object-cover"
-            />
-            <motion.div 
-              className="mt-4 text-gray-600 dark:text-gray-400 font-sans"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            >
+            <span className="text-gray-600 dark:text-gray-400 font-sans">
               I create algorithmic art and
               <br />
               generative experiences
-            </motion.div>
+            </span>
           </motion.div>
-          
           <motion.h2 
-            className="absolute right-0 bottom-0 text-[15vw] leading-none tracking-tighter font-bold translate-y-full"
+            className="text-[15vw] leading-none tracking-tighter font-bold"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
@@ -77,7 +81,7 @@ export const HeroSection = () => {
             ZEKE.
           </motion.h2>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
