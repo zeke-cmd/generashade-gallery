@@ -30,33 +30,27 @@ const Index = () => {
         <main className="flex-1 p-4 md:p-8">
           <SidebarTrigger className="mb-8" />
           
-          {/* Greeting Section with Dynamic Design */}
-          <section className="min-h-[50vh] flex flex-col justify-center mb-20 relative overflow-hidden">
-            <motion.div
-              initial={{ scaleY: 0 }}
-              animate={{ scaleY: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="absolute inset-0 bg-black transform origin-bottom"
-            />
+          {/* Hero Section with Clean Design */}
+          <section className="min-h-[50vh] flex flex-col justify-center mb-20 relative overflow-hidden bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-xl p-8">
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="relative z-10 px-4 md:px-8"
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="relative z-10"
             >
               <motion.h1 
-                className="font-mono text-[15vw] md:text-[12vw] lg:text-[8vw] font-light mb-4 text-white tracking-tighter leading-none"
-                initial={{ x: -100 }}
+                className="font-mono text-[8vw] md:text-[6vw] lg:text-[4vw] font-light mb-4 text-gray-900 dark:text-white tracking-tighter leading-none"
+                initial={{ x: -50 }}
                 animate={{ x: 0 }}
-                transition={{ delay: 0.8, type: "spring", stiffness: 100 }}
+                transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
               >
                 ZEKE
               </motion.h1>
               <motion.p 
-                className="font-mono text-lg md:text-xl text-white tracking-tight border-l-4 border-white pl-4"
+                className="font-mono text-lg md:text-xl text-gray-600 dark:text-gray-300 tracking-tight border-l-4 border-gray-900 dark:border-white pl-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.2 }}
+                transition={{ delay: 0.6 }}
               >
                 Abstract Generative Artist
               </motion.p>
@@ -69,7 +63,7 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="min-h-[50vh] flex flex-col justify-center mb-20 bg-white border-2 border-black p-6 md:p-12 relative"
+            className="min-h-[50vh] flex flex-col justify-center mb-20 bg-white dark:bg-gray-900 border-2 border-black dark:border-white p-6 md:p-12 relative"
           >
             <motion.div 
               className="absolute top-0 right-0 w-16 h-16 md:w-32 md:h-32 bg-black"
@@ -82,12 +76,12 @@ const Index = () => {
                 ease: "linear"
               }}
             />
-            <h2 className="font-mono text-4xl md:text-6xl lg:text-8xl font-light mb-6 text-black tracking-tighter">
+            <h2 className="font-mono text-4xl md:text-6xl lg:text-8xl font-light mb-6 text-black dark:text-white tracking-tighter">
               Generative
               <br />
               Art Gallery
             </h2>
-            <p className="font-mono text-lg md:text-xl lg:text-2xl text-black max-w-xl border-l-4 border-black pl-4">
+            <p className="font-mono text-lg md:text-xl lg:text-2xl text-black dark:text-white max-w-xl border-l-4 border-black dark:border-white pl-4">
               Exploring the intersection of code and creativity through algorithmic art.
             </p>
           </motion.section>
@@ -98,7 +92,7 @@ const Index = () => {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="font-mono text-2xl md:text-3xl mb-12 text-black tracking-tight"
+              className="font-mono text-2xl md:text-3xl mb-12 text-black dark:text-white tracking-tight"
             >
               Featured Works
             </motion.h2>
@@ -120,14 +114,14 @@ const Index = () => {
           {/* About Section */}
           <motion.section 
             id="about" 
-            className="max-w-2xl mb-20 bg-white border-2 border-black p-6 md:p-12 relative mx-4 md:mx-auto"
+            className="max-w-2xl mb-20 bg-white dark:bg-gray-900 border-2 border-black dark:border-white p-6 md:p-12 relative mx-4 md:mx-auto"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <div className="absolute top-0 left-0 w-20 h-1 bg-black" />
-            <h2 className="font-mono text-2xl md:text-3xl mb-6 text-black tracking-tight">About</h2>
-            <p className="font-mono text-base md:text-lg leading-relaxed text-black">
+            <div className="absolute top-0 left-0 w-20 h-1 bg-black dark:bg-white" />
+            <h2 className="font-mono text-2xl md:text-3xl mb-6 text-black dark:text-white tracking-tight">About</h2>
+            <p className="font-mono text-base md:text-lg leading-relaxed text-black dark:text-white">
               As a developer with an artist's heart, I blend the precision of code with the freedom of creative expression. 
               My work explores the beautiful intersection of technology and art, creating abstract generative pieces that 
               challenge the boundaries between human creativity and computational aesthetics.
@@ -142,13 +136,13 @@ const Index = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-mono text-2xl md:text-3xl mb-6 text-black tracking-tight">Contact</h2>
-            <p className="font-mono text-base md:text-lg mb-4 text-black">
+            <h2 className="font-mono text-2xl md:text-3xl mb-6 text-black dark:text-white tracking-tight">Contact</h2>
+            <p className="font-mono text-base md:text-lg mb-4 text-black dark:text-white">
               Interested in collaborating or purchasing a piece? Get in touch:
             </p>
             <motion.a 
               href="mailto:zeke@example.com" 
-              className="inline-block font-mono border-b-2 border-black hover:bg-black hover:text-white transition-colors text-black"
+              className="inline-block font-mono border-b-2 border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-black dark:text-white"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
