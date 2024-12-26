@@ -27,64 +27,62 @@ const Index = () => {
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-white dark:bg-black">
         <AppSidebar />
-        <main className="flex-1 p-4 md:p-8">
-          <SidebarTrigger className="mb-8" />
+        <main className="flex-1">
+          <SidebarTrigger className="absolute top-8 left-8 z-50" />
           
-          {/* Hero Section with Clean Design */}
-          <section className="min-h-[50vh] flex flex-col justify-center mb-20 relative overflow-hidden bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-xl p-8">
-            <motion.div
-              initial={{ opacity: 0, y: 100 }}
+          {/* Hero Section */}
+          <section className="min-h-screen w-full flex flex-col justify-between p-8 relative">
+            {/* Header Info */}
+            <div className="flex justify-between items-start w-full text-sm text-gray-600 dark:text-gray-400">
+              <span>Currently exploring generative art</span>
+              <span>Based in Digital Space</span>
+              <span>Work, About, Contact</span>
+            </div>
+
+            {/* Main Title */}
+            <motion.div 
+              className="flex flex-col space-y-4 my-auto"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="relative z-10"
+              transition={{ duration: 0.8 }}
             >
               <motion.h1 
-                className="font-mono text-[8vw] md:text-[6vw] lg:text-[4vw] font-light mb-4 text-gray-900 dark:text-white tracking-tighter leading-none"
-                initial={{ x: -50 }}
-                animate={{ x: 0 }}
-                transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
+                className="text-[8vw] leading-none tracking-tighter font-bold"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+              >
+                ABSTRACT
+                <br />
+                GENERATIVE
+                <br />
+                ARTIST
+              </motion.h1>
+            </motion.div>
+
+            {/* Bottom Section */}
+            <div className="flex justify-between items-end w-full">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                <span className="text-gray-600 dark:text-gray-400">
+                  I create algorithmic art and
+                  <br />
+                  generative experiences
+                </span>
+              </motion.div>
+              <motion.h2 
+                className="text-[15vw] leading-none tracking-tighter font-bold"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
               >
                 ZEKE
-              </motion.h1>
-              <motion.p 
-                className="font-mono text-lg md:text-xl text-gray-600 dark:text-gray-300 tracking-tight border-l-4 border-gray-900 dark:border-white pl-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-              >
-                Abstract Generative Artist
-              </motion.p>
-            </motion.div>
+              </motion.h2>
+            </div>
           </section>
-
-          {/* Hero Section */}
-          <motion.section 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="min-h-[50vh] flex flex-col justify-center mb-20 bg-white dark:bg-gray-900 border-2 border-black dark:border-white p-6 md:p-12 relative"
-          >
-            <motion.div 
-              className="absolute top-0 right-0 w-16 h-16 md:w-32 md:h-32 bg-black"
-              animate={{ 
-                rotate: [0, 90, 180, 270, 360],
-              }}
-              transition={{ 
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            />
-            <h2 className="font-mono text-4xl md:text-6xl lg:text-8xl font-light mb-6 text-black dark:text-white tracking-tighter">
-              Generative
-              <br />
-              Art Gallery
-            </h2>
-            <p className="font-mono text-lg md:text-xl lg:text-2xl text-black dark:text-white max-w-xl border-l-4 border-black dark:border-white pl-4">
-              Exploring the intersection of code and creativity through algorithmic art.
-            </p>
-          </motion.section>
 
           {/* Gallery Section */}
           <section id="gallery" className="mb-20">
