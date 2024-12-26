@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import p5 from "p5";
 import { Button } from "@/components/ui/button";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/AppSidebar";
 import { motion } from "framer-motion";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 
 const Create = () => {
   const sketchRef = useRef<HTMLDivElement>(null);
@@ -119,51 +118,47 @@ function draw() {
   };
 
   return (
-    <SidebarProvider>
-      <div className="min-h-screen flex w-full">
-        <AppSidebar />
-        <main className="flex-1 p-8">
-          <SidebarTrigger className="mb-8" />
-          
-          <div className="max-w-6xl mx-auto">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="font-mono text-4xl mb-8"
-            >
-              Create Generative Art
-            </motion.h1>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="h-screen w-full bg-background">
+      <ResizablePanelGroup direction="horizontal">
+        <ResizablePanel defaultSize={50} minSize={30}>
+          <div className="h-full flex flex-col">
+            <div className="flex items-center justify-between p-4 border-b">
+              <h2 className="text-lg font-semibold">Code Editor</h2>
+              <Button onClick={regenerate} size="sm">
+                Run Code
+              </Button>
+            </div>
+            <div className="flex-1 p-4">
+              <textarea
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+                className="w-full h-full font-mono text-sm bg-background border rounded-md p-4 resize-none focus:outline-none focus:ring-2 focus:ring-ring"
+                spellCheck={false}
+              />
+            </div>
+          </div>
+        </ResizablePanel>
+        
+        <ResizableHandle />
+        
+        <ResizablePanel defaultSize={50} minSize={30}>
+          <div className="h-full flex flex-col">
+            <div className="flex items-center p-4 border-b">
+              <h2 className="text-lg font-semibold">Preview</h2>
+            </div>
+            <div className="flex-1 p-4 flex items-center justify-center bg-black/5">
               <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="space-y-4"
-              >
-                <div className="bg-black p-4 rounded-lg">
-                  <textarea
-                    value={code}
-                    onChange={(e) => setCode(e.target.value)}
-                    className="w-full h-[600px] bg-black text-white font-mono p-4 focus:outline-none resize-none"
-                  />
-                </div>
-                <Button onClick={regenerate} className="w-full">
-                  Run Code
-                </Button>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 className="bg-card rounded-lg overflow-hidden shadow-xl"
               >
                 <div ref={sketchRef} />
               </motion.div>
             </div>
           </div>
-        </main>
-      </div>
-    </SidebarProvider>
+        </ResizablePanel>
+      </ResizablePanelGroup>
+    </div>
   );
 };
 
