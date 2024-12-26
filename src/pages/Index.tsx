@@ -27,7 +27,7 @@ const Index = () => {
       <div className="min-h-screen flex w-full bg-white dark:bg-black">
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="min-h-screen w-full flex flex-col justify-between p-8 relative">
+          <section className="h-screen w-full flex flex-col justify-between p-8 relative container mx-auto mt-16 md:mt-20 lg:mt-24">
             {/* Header Info */}
             <div className="flex justify-between items-start w-full text-sm text-gray-600 dark:text-gray-400">
               <span>Currently exploring generative art</span>
@@ -43,7 +43,7 @@ const Index = () => {
               transition={{ duration: 0.8 }}
             >
               <motion.h1 
-                className="text-[8vw] leading-none tracking-tighter font-bold"
+                className="text-[8vw] leading-none tracking-tighter font-bold font-mono"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -57,7 +57,7 @@ const Index = () => {
               
               {/* Random Image */}
               <motion.div
-                className="w-full max-w-xl mt-8"
+                className="w-full max-w-md mx-auto mt-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
@@ -65,7 +65,7 @@ const Index = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3"
                   alt="Abstract Art"
-                  className="w-full h-64 object-cover"
+                  className="w-full h-48 object-cover"
                 />
               </motion.div>
             </motion.div>
@@ -77,14 +77,14 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
               >
-                <span className="text-gray-600 dark:text-gray-400">
+                <span className="text-gray-600 dark:text-gray-400 font-mono">
                   I create algorithmic art and
                   <br />
                   generative experiences
                 </span>
               </motion.div>
               <motion.h2 
-                className="text-[15vw] leading-none tracking-tighter font-bold"
+                className="text-[15vw] leading-none tracking-tighter font-bold font-mono"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
