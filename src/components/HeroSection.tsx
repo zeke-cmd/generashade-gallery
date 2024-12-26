@@ -42,10 +42,35 @@ export const HeroSection = () => {
           <br />
           ARTIST
         </motion.h1>
+      </motion.div>
+
+      {/* Bottom Section with Image and Text */}
+      <div className="flex justify-between items-end w-full mt-auto">
+        <div className="flex flex-col items-start space-y-8">
+          <motion.h2 
+            className="text-[15vw] leading-none tracking-tighter font-bold"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            ZEKE.
+          </motion.h2>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <span className="text-gray-600 dark:text-gray-400 font-sans">
+              I create algorithmic art and
+              <br />
+              generative experiences
+            </span>
+          </motion.div>
+        </div>
         
         {/* Random Image */}
         <motion.div
-          className="w-full max-w-md mt-8"
+          className="w-full max-w-md"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
@@ -56,29 +81,6 @@ export const HeroSection = () => {
             className="w-full h-48 object-cover"
           />
         </motion.div>
-      </motion.div>
-
-      {/* Bottom Section - Moved up by adding mt-auto */}
-      <div className="flex justify-between items-end w-full mt-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
-          <span className="text-gray-600 dark:text-gray-400 font-sans">
-            I create algorithmic art and
-            <br />
-            generative experiences
-          </span>
-        </motion.div>
-        <motion.h2 
-          className="text-[15vw] leading-none tracking-tighter font-bold"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          ZEKE.
-        </motion.h2>
       </div>
     </section>
   );
