@@ -125,62 +125,75 @@ const Index = () => {
           </motion.div>
 
           {/* Gallery Section */}
-          <section id="gallery" className="mb-20">
-            <motion.h2 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+          <section id="gallery" className="mb-20 px-6">
+            <motion.div
+              className="max-w-6xl mx-auto"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="font-mono text-2xl md:text-3xl mb-12 text-black dark:text-white tracking-tight"
             >
-              Featured Works
-            </motion.h2>
-            <div className="art-grid">
-              {artworks.map((artwork, index) => (
-                <motion.div
-                  key={artwork.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                >
-                  <ArtCard {...artwork} />
-                </motion.div>
-              ))}
-            </div>
+              <motion.h2 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="text-[4vw] md:text-[3vw] leading-tight tracking-tighter font-bold mb-12"
+              >
+                Featured Works
+              </motion.h2>
+              <div className="art-grid">
+                {artworks.map((artwork, index) => (
+                  <motion.div
+                    key={artwork.title}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.2 }}
+                  >
+                    <ArtCard {...artwork} />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </section>
 
           {/* About Section */}
           <motion.section 
             id="about" 
-            className="max-w-2xl mb-20 bg-white dark:bg-gray-900 border-2 border-black dark:border-white p-6 md:p-12 relative mx-4 md:mx-auto"
+            className="max-w-4xl mb-20 mx-6 md:mx-auto"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <div className="absolute top-0 left-0 w-20 h-1 bg-black dark:bg-white" />
-            <h2 className="font-mono text-2xl md:text-3xl mb-6 text-black dark:text-white tracking-tight">About</h2>
-            <p className="font-mono text-base md:text-lg leading-relaxed text-black dark:text-white">
-              As a developer with an artist's heart, I blend the precision of code with the freedom of creative expression. 
-              My work explores the beautiful intersection of technology and art, creating abstract generative pieces that 
-              challenge the boundaries between human creativity and computational aesthetics.
-            </p>
+            <div className="bg-white dark:bg-black border-2 border-black dark:border-white p-6 md:p-12 relative">
+              <div className="absolute top-0 left-0 w-20 h-1 bg-black dark:bg-white" />
+              <h2 className="text-[4vw] md:text-[3vw] leading-tight tracking-tighter font-bold mb-8">
+                About
+              </h2>
+              <p className="text-lg md:text-xl leading-relaxed">
+                As a developer with an artist's heart, I blend the precision of code with the freedom of creative expression. 
+                My work explores the beautiful intersection of technology and art, creating abstract generative pieces that 
+                challenge the boundaries between human creativity and computational aesthetics.
+              </p>
+            </div>
           </motion.section>
 
           {/* Contact Section */}
           <motion.section 
             id="contact" 
-            className="max-w-2xl mb-20 mx-4 md:mx-auto"
+            className="max-w-4xl mb-20 mx-6 md:mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-mono text-2xl md:text-3xl mb-6 text-black dark:text-white tracking-tight">Contact</h2>
-            <p className="font-mono text-base md:text-lg mb-4 text-black dark:text-white">
+            <h2 className="text-[4vw] md:text-[3vw] leading-tight tracking-tighter font-bold mb-8">
+              Contact
+            </h2>
+            <p className="text-lg md:text-xl mb-4">
               Interested in collaborating or purchasing a piece? Get in touch:
             </p>
             <motion.a 
               href="mailto:zeke@example.com" 
-              className="inline-block font-mono border-b-2 border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-black dark:text-white"
+              className="inline-block border-b-2 border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
