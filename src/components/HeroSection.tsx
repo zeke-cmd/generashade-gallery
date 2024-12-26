@@ -1,9 +1,21 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 export const HeroSection = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    gsap.from(sectionRef.current, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+    });
+  }, []);
+
   return (
-    <section className="min-h-screen w-full flex flex-col justify-between p-8 relative">
+    <section ref={sectionRef} className="min-h-screen w-full flex flex-col justify-between p-8 relative">
       {/* Header Info */}
       <div className="flex justify-between items-start w-full text-sm text-gray-600 dark:text-gray-400 mb-12 font-sans">
         <span>Currently exploring generative art</span>
@@ -13,7 +25,7 @@ export const HeroSection = () => {
 
       {/* Main Title */}
       <motion.div 
-        className="flex flex-col space-y-4 my-auto"
+        className="flex flex-col space-y-4 mb-20"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -46,8 +58,8 @@ export const HeroSection = () => {
         </motion.div>
       </motion.div>
 
-      {/* Bottom Section */}
-      <div className="flex justify-between items-end w-full">
+      {/* Bottom Section - Moved up by adding mt-auto */}
+      <div className="flex justify-between items-end w-full mt-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
