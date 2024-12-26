@@ -1,8 +1,7 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/AppSidebar";
-import { ArtCard } from "@/components/ArtCard";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { ArtCard } from "@/components/ArtCard";
 
 const artworks = [
   {
@@ -26,10 +25,7 @@ const Index = () => {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-white dark:bg-black">
-        <AppSidebar />
         <main className="flex-1">
-          <SidebarTrigger className="absolute top-8 left-8 z-50" />
-          
           {/* Hero Section */}
           <section className="min-h-screen w-full flex flex-col justify-between p-8 relative">
             {/* Header Info */}
@@ -58,6 +54,20 @@ const Index = () => {
                 <br />
                 ARTIST
               </motion.h1>
+              
+              {/* Random Image */}
+              <motion.div
+                className="w-full max-w-xl mt-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3"
+                  alt="Abstract Art"
+                  className="w-full h-64 object-cover"
+                />
+              </motion.div>
             </motion.div>
 
             {/* Bottom Section */}
@@ -79,10 +89,41 @@ const Index = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
               >
-                ZEKE
+                ZEKE.
               </motion.h2>
             </div>
           </section>
+
+          {/* Theme Toggle Button */}
+          <motion.div 
+            className="fixed bottom-8 right-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
+            <Button
+              variant="outline"
+              size="icon"
+              className="rounded-full w-12 h-12"
+              onClick={() => document.documentElement.classList.toggle('dark')}
+            >
+              <span className="sr-only">Toggle theme</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+                />
+              </svg>
+            </Button>
+          </motion.div>
 
           {/* Gallery Section */}
           <section id="gallery" className="mb-20">
@@ -147,37 +188,6 @@ const Index = () => {
               zeke@example.com
             </motion.a>
           </motion.section>
-
-          {/* Theme Toggle Button */}
-          <motion.div 
-            className="fixed bottom-8 right-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-          >
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full w-12 h-12"
-              onClick={() => document.documentElement.classList.toggle('dark')}
-            >
-              <span className="sr-only">Toggle theme</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-                />
-              </svg>
-            </Button>
-          </motion.div>
         </main>
       </div>
     </SidebarProvider>
