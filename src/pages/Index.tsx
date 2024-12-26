@@ -2,6 +2,11 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArtCard } from "@/components/ArtCard";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const artworks = [
   {
@@ -22,6 +27,34 @@ const artworks = [
 ];
 
 const Index = () => {
+  const galleryRef = useRef(null);
+  const aboutRef = useRef(null);
+
+  useEffect(() => {
+    // GSAP animations for sections
+    gsap.from(galleryRef.current, {
+      scrollTrigger: {
+        trigger: galleryRef.current,
+        start: "top center",
+        end: "bottom center",
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+    });
+
+    gsap.from(aboutRef.current, {
+      scrollTrigger: {
+        trigger: aboutRef.current,
+        start: "top center",
+        end: "bottom center",
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+    });
+  }, []);
+
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-white dark:bg-black">
@@ -43,7 +76,7 @@ const Index = () => {
               transition={{ duration: 0.8 }}
             >
               <motion.h1 
-                className="text-[8vw] leading-none tracking-tighter font-bold"
+                className="text-[8vw] leading-none tracking-tighter font-bold font-mono"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -84,7 +117,7 @@ const Index = () => {
                 </span>
               </motion.div>
               <motion.h2 
-                className="text-[15vw] leading-none tracking-tighter font-bold"
+                className="text-[15vw] leading-none tracking-tighter font-bold font-mono"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
@@ -92,6 +125,62 @@ const Index = () => {
                 ZEKE.
               </motion.h2>
             </div>
+          </section>
+
+          {/* Gallery Section */}
+          <section ref={galleryRef} id="gallery" className="min-h-screen p-8 mb-20">
+            <motion.h2 
+              className="font-mono text-2xl md:text-3xl mb-12 text-black dark:text-white tracking-tight"
+            >
+              Featured Works
+            </motion.h2>
+            <div className="art-grid">
+              {artworks.map((artwork, index) => (
+                <motion.div
+                  key={artwork.title}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  <ArtCard {...artwork} />
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
+          {/* About and Contact Section */}
+          <section ref={aboutRef} id="about-contact" className="min-h-screen p-8">
+            {/* About Section */}
+            <motion.div 
+              className="max-w-2xl mb-20 bg-white dark:bg-gray-900 border-2 border-black dark:border-white p-6 md:p-12 relative mx-4 md:mx-auto"
+            >
+              <div className="absolute top-0 left-0 w-20 h-1 bg-black dark:bg-white" />
+              <h2 className="font-mono text-2xl md:text-3xl mb-6 text-black dark:text-white tracking-tight">About</h2>
+              <p className="font-mono text-base md:text-lg leading-relaxed text-black dark:text-white">
+                As a developer with an artist's heart, I blend the precision of code with the freedom of creative expression. 
+                My work explores the beautiful intersection of technology and art, creating abstract generative pieces that 
+                challenge the boundaries between human creativity and computational aesthetics.
+              </p>
+            </motion.div>
+
+            {/* Contact Section */}
+            <motion.div 
+              className="max-w-2xl mb-20 mx-4 md:mx-auto"
+            >
+              <h2 className="font-mono text-2xl md:text-3xl mb-6 text-black dark:text-white tracking-tight">Contact</h2>
+              <p className="font-mono text-base md:text-lg mb-4 text-black dark:text-white">
+                Interested in collaborating or purchasing a piece? Get in touch:
+              </p>
+              <motion.a 
+                href="mailto:zeke@example.com" 
+                className="inline-block font-mono border-b-2 border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-black dark:text-white"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                zeke@example.com
+              </motion.a>
+            </motion.div>
           </section>
 
           <motion.div 
@@ -123,70 +212,6 @@ const Index = () => {
               </svg>
             </Button>
           </motion.div>
-
-          {/* Gallery Section */}
-          <section id="gallery" className="mb-20">
-            <motion.h2 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="font-mono text-2xl md:text-3xl mb-12 text-black dark:text-white tracking-tight"
-            >
-              Featured Works
-            </motion.h2>
-            <div className="art-grid">
-              {artworks.map((artwork, index) => (
-                <motion.div
-                  key={artwork.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                >
-                  <ArtCard {...artwork} />
-                </motion.div>
-              ))}
-            </div>
-          </section>
-
-          {/* About Section */}
-          <motion.section 
-            id="about" 
-            className="max-w-2xl mb-20 bg-white dark:bg-gray-900 border-2 border-black dark:border-white p-6 md:p-12 relative mx-4 md:mx-auto"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            <div className="absolute top-0 left-0 w-20 h-1 bg-black dark:bg-white" />
-            <h2 className="font-mono text-2xl md:text-3xl mb-6 text-black dark:text-white tracking-tight">About</h2>
-            <p className="font-mono text-base md:text-lg leading-relaxed text-black dark:text-white">
-              As a developer with an artist's heart, I blend the precision of code with the freedom of creative expression. 
-              My work explores the beautiful intersection of technology and art, creating abstract generative pieces that 
-              challenge the boundaries between human creativity and computational aesthetics.
-            </p>
-          </motion.section>
-
-          {/* Contact Section */}
-          <motion.section 
-            id="contact" 
-            className="max-w-2xl mb-20 mx-4 md:mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-mono text-2xl md:text-3xl mb-6 text-black dark:text-white tracking-tight">Contact</h2>
-            <p className="font-mono text-base md:text-lg mb-4 text-black dark:text-white">
-              Interested in collaborating or purchasing a piece? Get in touch:
-            </p>
-            <motion.a 
-              href="mailto:zeke@example.com" 
-              className="inline-block font-mono border-b-2 border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-black dark:text-white"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              zeke@example.com
-            </motion.a>
-          </motion.section>
         </main>
       </div>
     </SidebarProvider>
