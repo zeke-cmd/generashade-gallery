@@ -40,7 +40,7 @@ export const GallerySection = () => {
 
   return (
     <section ref={sectionRef} id="gallery" className="min-h-screen p-8 mb-20">
-      <motion.h2 className="text-[5vw] font-bold tracking-tighter mb-16 text-black dark:text-white">
+      <motion.h2 className="font-mono text-2xl md:text-3xl mb-12 text-black dark:text-white tracking-tight">
         Featured Works
       </motion.h2>
       <div className="art-grid">
