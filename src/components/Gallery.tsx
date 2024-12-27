@@ -8,7 +8,7 @@ export function Gallery() {
       <motion.h1
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
-        className="absolute top-8 left-8 text-[12rem] font-bold text-[#ea384c] tracking-tighter"
+        className="absolute top-8 right-8 text-[12rem] font-bold text-[#ea384c] tracking-tighter leading-none"
       >
         THE GALLERY.
       </motion.h1>
@@ -17,7 +17,7 @@ export function Gallery() {
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="absolute top-48 left-8 max-w-md text-gray-400"
+        className="absolute top-48 right-8 max-w-md text-gray-400 text-right"
       >
         Exploring the intersection of algorithms and aesthetics through generative art pieces 
         that push the boundaries of digital creativity.
