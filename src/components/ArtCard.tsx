@@ -15,14 +15,18 @@ export function ArtCard({ title, image, description }: ArtCardProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img src={image} alt={title} className="w-full h-full object-cover transition-all duration-500" />
+      <img 
+        src={image} 
+        alt={title} 
+        className="w-full h-full object-cover transition-all duration-500 hover:scale-105" 
+      />
       <div
         className={`absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-6 transition-opacity duration-300 ${
           isHovered ? "opacity-100" : "opacity-0"
         }`}
       >
         <h3 className="font-sans text-white text-xl mb-2">{title}</h3>
-        <p className="font-serif text-gray-300 text-sm">{description}</p>
+        <p className="font-sans text-gray-300 text-sm">{description}</p>
       </div>
     </div>
   );

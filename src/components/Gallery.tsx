@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArtCard } from "@/components/ArtCard";
 import { WorkSlider } from "@/components/WorkSlider";
+import { ArrowRight } from "lucide-react";
 
 const artworks = [
   {
@@ -25,29 +26,46 @@ export function Gallery() {
   const [isSliderOpen, setIsSliderOpen] = useState(false);
 
   return (
-    <section id="gallery" className="relative min-h-screen bg-black text-white">
+    <section className="relative min-h-screen bg-black text-white p-8">
       {/* Gallery Title */}
       <motion.h1
-        initial={{ opacity: 0, x: -50 }}
+        initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
-        className="absolute top-8 left-8 text-6xl font-bold tracking-tighter"
+        className="absolute top-8 right-8 text-[5rem] font-bold text-[#ea384c] tracking-tighter"
       >
         Gallery
       </motion.h1>
 
-      {/* Featured Works Title */}
-      <motion.h2
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        className="absolute bottom-8 right-8 text-2xl font-light"
+      {/* Descriptive Text */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        className="absolute top-48 right-8 max-w-md text-gray-400 text-right"
       >
-        Featured Works
-      </motion.h2>
+        Exploring the intersection of algorithms and aesthetics through generative art pieces that push the boundaries of digital creativity.
+      </motion.p>
+
+      {/* Featured Works Title and Arrow */}
+      <div 
+        className="absolute bottom-8 left-8 flex items-center gap-4 cursor-pointer group"
+        onClick={() => setIsSliderOpen(true)}
+      >
+        <motion.h2
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          className="text-2xl font-bold"
+        >
+          Featured Works
+        </motion.h2>
+        <div className="border-2 border-white rounded-full p-2 transition-transform group-hover:translate-x-2">
+          <ArrowRight className="w-6 h-6" />
+        </div>
+      </div>
 
       {/* Center Content */}
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div
-          className="relative w-full max-w-6xl mx-auto px-6 cursor-pointer group"
+          className="relative w-full max-w-6xl mx-auto px-6 cursor-pointer"
           onClick={() => setIsSliderOpen(true)}
         >
           <div className="art-grid">
@@ -62,7 +80,6 @@ export function Gallery() {
               </motion.div>
             ))}
           </div>
-          <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
         </motion.div>
       </div>
 
