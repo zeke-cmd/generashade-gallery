@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="min-h-screen w-full flex flex-col justify-between p-6 relative">
-      <div className="flex justify-between items-start w-full text-sm text-gray-600 dark:text-gray-400 mb-8">
+    <section className="h-screen w-full flex flex-col justify-between p-6 relative overflow-hidden">
+      <div className="flex justify-between items-start w-full text-sm text-gray-600 dark:text-gray-400">
         <a 
           href="#gallery" 
           className="relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
@@ -22,7 +22,7 @@ export function Hero() {
       </div>
 
       <motion.div 
-        className="flex flex-col space-y-2 my-auto"
+        className="flex flex-col space-y-2 my-auto max-w-full"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -54,7 +54,7 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      <div className="flex justify-between items-end w-full mt-4">
+      <div className="flex justify-between items-end w-full">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
