@@ -15,7 +15,7 @@ const Section = ({ children }: { children: React.ReactNode }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.8 }}
-      className="w-full min-h-screen flex items-center justify-center"
+      className="w-full min-h-screen"
     >
       {children}
     </motion.section>
@@ -32,9 +32,9 @@ const Index = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className={isMobile ? "overflow-y-auto" : "h-screen overflow-y-auto"}>
+    <div className={`${isMobile ? "" : "snap-y snap-mandatory"} h-screen ${isMobile ? "overflow-y-auto" : "overflow-y-scroll"}`}>
       {sections.map(({ id, Component }) => (
-        <div key={id} className="min-h-screen">
+        <div key={id} className={`${isMobile ? "" : "snap-start"} h-screen`}>
           <Section>
             <Component />
           </Section>
