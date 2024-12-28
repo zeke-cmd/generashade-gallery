@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { Gallery } from "@/components/Gallery";
 import { About } from "@/components/About";
 import { motion, useInView } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Section = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef(null);
@@ -14,7 +15,7 @@ const Section = ({ children }: { children: React.ReactNode }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.8 }}
-      className="min-h-screen w-full"
+      className="w-full min-h-screen"
     >
       {children}
     </motion.section>
@@ -28,10 +29,12 @@ const sections = [
 ];
 
 const Index = () => {
+  const isMobile = useIsMobile();
+
   return (
-    <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
+    <div className={`${isMobile ? "" : "snap-y snap-mandatory"} h-screen ${isMobile ? "overflow-y-auto" : "overflow-y-scroll"}`}>
       {sections.map(({ id, Component }) => (
-        <div key={id} className="snap-start h-screen">
+        <div key={id} className={`${isMobile ? "" : "snap-start"} h-screen`}>
           <Section>
             <Component />
           </Section>
