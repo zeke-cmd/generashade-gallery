@@ -25,7 +25,7 @@ export function About() {
 
       {/* Contact Section - White Background */}
       <div className="w-full md:w-1/2 min-h-screen bg-white text-black py-20 px-6 md:px-12 flex flex-col justify-between">
-        <div className="md:mb-20"></div> {/* Empty div for spacing with larger margin on md screens */}
+        <div></div> {/* Empty div for spacing */}
         
         <motion.div 
           className="space-y-6 max-w-xl mx-auto"
