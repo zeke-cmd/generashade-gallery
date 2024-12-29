@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { X } from "lucide-react";
 
 export function About() {
   return (
@@ -12,7 +11,7 @@ export function About() {
       >
         {/* About Section */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight underline">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 tracking-tight">
             ABOUT
           </h2>
           <p className="text-lg md:text-xl leading-relaxed text-gray-600 dark:text-gray-300">
@@ -24,32 +23,20 @@ export function About() {
 
         {/* Contact Section */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight underline">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 tracking-tight">
             CONTACT
           </h2>
           <p className="text-lg md:text-xl mb-4 text-gray-600 dark:text-gray-300">
             Interested in collaborating or purchasing a piece? Get in touch:
           </p>
-          <div className="space-y-4">
-            <motion.a 
-              href="mailto:zeke@example.com"
-              className="inline-block text-xl hover:underline transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              zeke@example.com
-            </motion.a>
-            <div className="pt-4">
-              <a 
-                href="https://twitter.com/example" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-block hover:opacity-80 transition-opacity"
-              >
-                <X size={24} />
-              </a>
-            </div>
-          </div>
+          <motion.a 
+            href="mailto:zeke@example.com"
+            className="inline-block text-xl hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            zeke@example.com
+          </motion.a>
         </div>
       </motion.div>
     </div>
