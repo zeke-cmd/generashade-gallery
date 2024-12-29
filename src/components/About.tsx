@@ -26,7 +26,7 @@ export function About() {
       {/* Contact Section - White Background */}
       <div className="w-full md:w-1/2 min-h-screen bg-white text-black py-20 px-6 md:px-12 flex flex-col justify-between">
         <motion.div 
-          className="space-y-6 max-w-xl mx-auto mt-20"
+          className="space-y-6 max-w-xl mx-auto"
           initial={{ x: 50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -46,6 +46,16 @@ export function About() {
               >
                 zeke@example.com
               </a>
+              <div className="flex justify-start items-center gap-4 pt-4">
+                <a 
+                  href="https://twitter.com/zeke" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-[#ea384c] transition-colors"
+                >
+                  <Twitter size={32} />
+                </a>
+              </div>
             </motion.div>
           </div>
         </motion.div>
@@ -54,21 +64,11 @@ export function About() {
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="max-w-xl mx-auto w-full space-y-8"
+          className="max-w-xl mx-auto w-full"
         >
-          <h2 className="text-[10vw] md:text-[8vw] font-bold tracking-tighter text-[#ea384c]">
+          <h2 className="text-[8vw] md:text-[6vw] font-bold tracking-tighter text-[#ea384c]">
             CONTACT.
           </h2>
-          <div className="flex justify-start items-center gap-4">
-            <a 
-              href="https://twitter.com/zeke" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-[#ea384c] transition-colors"
-            >
-              <Twitter size={32} />
-            </a>
-          </div>
         </motion.div>
       </div>
     </div>
