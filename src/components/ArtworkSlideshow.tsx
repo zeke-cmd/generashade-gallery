@@ -10,7 +10,7 @@ export function ArtworkSlideshow() {
       className="flex items-center gap-4 group cursor-pointer"
     >
       <h2 className="text-4xl font-bold text-white group-hover:underline">
-        Explore WORKS
+        EXPLORE WORKS
       </h2>
       <ArrowRight className="w-8 h-8 text-white transition-transform group-hover:translate-x-2" />
     </div>
