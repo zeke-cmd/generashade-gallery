@@ -3,6 +3,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { Home } from "lucide-react";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { useState } from "react";
+import { WorkSlider } from "@/components/WorkSlider";
 
 export default function Works() {
   const [openBlocs, setOpenBlocs] = useState(false);
@@ -13,6 +14,12 @@ export default function Works() {
     "/lovable-uploads/a3e6744f-2bd2-4404-be2d-c43520759e96.png",
     "/lovable-uploads/a72fddef-493c-481b-a597-6da2e9058fb8.png"
   ];
+
+  const blocsWorks = blocsImages.map((image) => ({
+    title: "BLOCS",
+    image,
+    description: "A generative art project exploring geometric abstraction through digital means. Each piece demonstrates a careful balance of form, color, and space.",
+  }));
 
   return (
     <div className="min-h-screen bg-black px-8 py-12">
@@ -62,34 +69,11 @@ export default function Works() {
         </motion.div>
       </motion.div>
 
-      <Drawer open={openBlocs} onOpenChange={setOpenBlocs}>
-        <DrawerContent className="h-full w-[90vw] sm:w-[45vw] bg-black border-r border-[#333333]">
-          <DrawerHeader className="border-b border-[#333333]">
-            <DrawerTitle className="text-[#ea384c] text-2xl">BLOCS</DrawerTitle>
-          </DrawerHeader>
-          <div className="p-6 overflow-y-auto">
-            <p className="text-white/80 text-lg mb-8">
-              BLOCS is a generative art project exploring geometric abstraction through digital means. 
-              The artwork features intricate compositions of squares, circles, and triangles arranged in 
-              grid-like patterns. Each piece demonstrates a careful balance of form, color, and space, 
-              creating dynamic visual relationships between simple geometric elements. The color palette 
-              ranges from vibrant primaries to subtle pastels, with overlapping transparent shapes 
-              creating new colors and forms where they intersect.
-            </p>
-            <div className="grid gap-8">
-              {blocsImages.map((src, index) => (
-                <div key={index} className="w-full aspect-square relative overflow-hidden border border-[#333333]">
-                  <img 
-                    src={src} 
-                    alt={`Blocs artwork ${index + 1}`}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </DrawerContent>
-      </Drawer>
+      <WorkSlider
+        isOpen={openBlocs}
+        onClose={() => setOpenBlocs(false)}
+        works={blocsWorks}
+      />
 
       <Drawer open={openWavy} onOpenChange={setOpenWavy}>
         <DrawerContent className="h-full w-[90vw] sm:w-[45vw] bg-black border-r border-[#333333]">
