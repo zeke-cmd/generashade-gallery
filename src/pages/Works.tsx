@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage } from "@/components/ui/breadcrumb";
 import { Home } from "lucide-react";
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { useState } from "react";
 import { WorkSlider } from "@/components/WorkSlider";
 
@@ -15,10 +14,22 @@ export default function Works() {
     "/lovable-uploads/a72fddef-493c-481b-a597-6da2e9058fb8.png"
   ];
 
+  const wavyImages = [
+    "/lovable-uploads/4545907c-41da-4de2-8574-f7d574c10c70.png",
+    "/lovable-uploads/276d3922-3972-4860-a7ea-2d90eb3ff5e2.png",
+    "/lovable-uploads/0280c325-09ae-4934-8866-b2b06727360c.png"
+  ];
+
   const blocsWorks = blocsImages.map((image) => ({
     title: "BLOCS",
     image,
     description: "A generative art project exploring geometric abstraction through digital means. Each piece demonstrates a careful balance of form, color, and space.",
+  }));
+
+  const wavyWorks = wavyImages.map((image) => ({
+    title: "WAVY DRAMA",
+    image,
+    description: "An exploration of fluid dynamics and color theory through digital art. This series captures the essence of movement and rhythm through undulating forms and carefully curated color palettes. Each piece tells a story of flow and transformation, where geometric precision meets organic motion.",
   }));
 
   return (
@@ -75,16 +86,11 @@ export default function Works() {
         works={blocsWorks}
       />
 
-      <Drawer open={openWavy} onOpenChange={setOpenWavy}>
-        <DrawerContent className="h-full w-[90vw] sm:w-[45vw] bg-black border-r border-[#333333]">
-          <DrawerHeader className="border-b border-[#333333]">
-            <DrawerTitle className="text-[#ea384c] text-2xl">WAVY DRAMA</DrawerTitle>
-          </DrawerHeader>
-          <div className="p-6">
-            <p className="text-white/80 text-lg">Coming soon...</p>
-          </div>
-        </DrawerContent>
-      </Drawer>
+      <WorkSlider
+        isOpen={openWavy}
+        onClose={() => setOpenWavy(false)}
+        works={wavyWorks}
+      />
     </div>
   );
 }
