@@ -63,7 +63,7 @@ export default function Works() {
       </motion.div>
 
       <Drawer open={openBlocs} onOpenChange={setOpenBlocs}>
-        <DrawerContent side="right" className="h-full w-[90vw] sm:w-[45vw] bg-black border-l border-[#333333]">
+        <DrawerContent className="h-full w-[90vw] sm:w-[45vw] bg-black border-r border-[#333333]">
           <DrawerHeader className="border-b border-[#333333]">
             <DrawerTitle className="text-[#ea384c] text-2xl">BLOCS</DrawerTitle>
           </DrawerHeader>
@@ -92,7 +92,7 @@ export default function Works() {
       </Drawer>
 
       <Drawer open={openWavy} onOpenChange={setOpenWavy}>
-        <DrawerContent side="right" className="h-full w-[90vw] sm:w-[45vw] bg-black border-l border-[#333333]">
+        <DrawerContent className="h-full w-[90vw] sm:w-[45vw] bg-black border-r border-[#333333]">
           <DrawerHeader className="border-b border-[#333333]">
             <DrawerTitle className="text-[#ea384c] text-2xl">WAVY DRAMA</DrawerTitle>
           </DrawerHeader>
