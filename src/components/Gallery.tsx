@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ArtworkSlideshow } from "./ArtworkSlideshow";
+import { useNavigate } from "react-router-dom";
 
 export function Gallery() {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
 
   if (isMobile) {
     return (
@@ -29,7 +31,8 @@ export function Gallery() {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="mt-8 flex items-center gap-2 md:gap-4 group"
+          className="mt-8 flex items-center gap-2 md:gap-4 group cursor-pointer"
+          onClick={() => navigate('/works')}
         >
           <h2 className="text-xl md:text-2xl font-bold text-white group-hover:underline">
             FEATURED WORKS
