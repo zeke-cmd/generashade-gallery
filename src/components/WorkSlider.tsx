@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { X } from "lucide-react";
 
 interface WorkSliderProps {
   isOpen: boolean;
@@ -22,9 +23,16 @@ export function WorkSlider({ isOpen, onClose, works }: WorkSliderProps) {
       onClick={onClose}
     >
       <div 
-        className="w-full max-w-4xl px-4 py-12 my-8" 
+        className="w-full max-w-4xl px-4 py-12 my-8 relative" 
         onClick={(e) => e.stopPropagation()}
       >
+        <button
+          onClick={onClose}
+          className="absolute top-0 right-0 p-4 text-white hover:text-[#ea384c] transition-colors"
+          aria-label="Close"
+        >
+          <X size={24} />
+        </button>
         <div className="space-y-16">
           {works.map((work, index) => (
             <div key={index} className="bg-black/50 p-8 rounded-lg space-y-6">
