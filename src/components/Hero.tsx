@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 export function Hero() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="h-screen w-full flex flex-col justify-between p-6 pb-8 relative overflow-hidden">
       <div className="flex justify-between items-start w-full text-sm text-gray-600 dark:text-gray-400 pb-4">
@@ -13,12 +20,12 @@ export function Hero() {
         </Link>
         <span>Based in Digital Space</span>
         <div className="space-x-4">
-          <a 
-            href="#about" 
+          <button 
+            onClick={() => scrollToSection('about')}
             className="relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
           >
-            Work • About • Contact
-          </a>
+            About • Contact
+          </button>
         </div>
       </div>
 
