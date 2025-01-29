@@ -20,17 +20,41 @@ export default function Works() {
     "/lovable-uploads/0280c325-09ae-4934-8866-b2b06727360c.png"
   ];
 
-  const blocsWorks = blocsImages.map((image) => ({
-    title: "BLOCS",
-    image,
-    description: "A generative art project exploring geometric abstraction through digital means. Each piece demonstrates a careful balance of form, color, and space.",
-  }));
+  const blocsWorks = [
+    {
+      title: "Geometric Harmony",
+      image: blocsImages[0],
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In this piece, the geometric forms create a harmonious balance between positive and negative space. The stark contrast between shapes evokes a sense of architectural precision while maintaining an organic flow. Through careful composition, each element contributes to a larger narrative about structure and form in modern digital art."
+    },
+    {
+      title: "Digital Tessellation",
+      image: blocsImages[1],
+      description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. This work explores the intersection of mathematical precision and artistic expression. The repeating patterns create a rhythmic visual experience, while the careful color selection adds depth and dimension to the geometric forms. Each block becomes part of a larger tapestry of digital abstraction."
+    },
+    {
+      title: "Cubic Perspectives",
+      image: blocsImages[2],
+      description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. The interplay of light and shadow in this piece creates an illusion of depth within the two-dimensional space. The geometric forms seem to float and interact, creating a dynamic composition that challenges traditional perspectives. Each element has been carefully positioned to maximize visual impact while maintaining compositional balance."
+    }
+  ];
 
-  const wavyWorks = wavyImages.map((image) => ({
-    title: "WAVY DRAMA",
-    image,
-    description: "An exploration of fluid dynamics and color theory through digital art. This series captures the essence of movement and rhythm through undulating forms and carefully curated color palettes. Each piece tells a story of flow and transformation, where geometric precision meets organic motion.",
-  }));
+  const wavyWorks = [
+    {
+      title: "Fluid Resonance",
+      image: wavyImages[0],
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. This piece captures the essence of fluid dynamics through digital manipulation. The undulating forms create a sense of movement and rhythm, while the carefully selected color palette enhances the emotional impact of the composition. Each wave tells its own story within the larger narrative of motion and transformation."
+    },
+    {
+      title: "Chromatic Waves",
+      image: wavyImages[1],
+      description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. The interplay of color and form in this work creates a mesmerizing visual experience. The flowing lines and gradients suggest natural phenomena while maintaining a distinctly digital aesthetic. The piece invites viewers to lose themselves in its rhythmic patterns and harmonious color transitions."
+    },
+    {
+      title: "Ethereal Currents",
+      image: wavyImages[2],
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. This work explores the boundaries between chaos and order through fluid digital forms. The dynamic composition suggests movement and energy while maintaining a sense of balance and harmony. Each curve and color transition has been carefully crafted to create a cohesive visual experience."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-black px-8 py-12">
